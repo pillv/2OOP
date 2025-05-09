@@ -7,9 +7,6 @@ class WallServiceTest {
 
     @Test
     fun add_PostIdIsNotZero() {
-        // Перед тестом очищаем сервис, если используем object
-        WallService.clear()
-
         val post = Post(text = "Тест добавления")
         val addedPost = WallService.add(post)
 
@@ -18,7 +15,6 @@ class WallServiceTest {
 
     @Test
     fun updateExistingPostReturnsTrue() {
-        WallService.clear()
         val post = WallService.add(Post(text = "Первый пост"))
         val updatedPost = post.copy(text = "Обновлённый пост")
         val result = WallService.update(updatedPost)
